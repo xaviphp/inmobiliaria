@@ -12,7 +12,7 @@
                     <br>
                    <table class="table">
                        <tr>
-                           <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th>
+                           <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Foto</th>
                            <th></th>
                        </tr>
                        @forelse($inmobiliarias as $inmobiliaria)
@@ -21,6 +21,9 @@
                                <td>{{$inmobiliaria->name}}</td>
                                <td>{{$inmobiliaria->description}}</td>
                                <td>{{$inmobiliaria->price}}</td>
+                               <td>
+                               @if($inmobiliaria->photo!=null)<img src="{{asset('storage/'.$inmobiliaria->photo)}}" width="150px">@endif
+                               </td>
                                <td><a href="{{route('admin.inmobiliarias.edit', $inmobiliaria->id)}}" class="btn btn-sm btn-info">Editar</a>
                                <form method="POST" action="{{route('admin.inmobiliarias.destroy', $inmobiliaria->id)}}">
 

@@ -16,6 +16,7 @@ class InmobiliariaController extends Controller
     public function index()
     {
         $inmobiliarias = Inmobiliaria::all();
+
         return view('admin.inmobiliarias.index', compact('inmobiliarias'));
     }
 
@@ -37,6 +38,7 @@ class InmobiliariaController extends Controller
      */
     public function store(Request $request)
     {
+        $path=$request->file('photo')->store('photos','public');
         Inmobiliaria::create($request->all());
         return redirect()->route('admin.inmobiliarias.index');
     }

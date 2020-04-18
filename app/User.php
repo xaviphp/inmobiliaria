@@ -73,4 +73,11 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function inmobiliarias(){
+        return $this->hasMany('App\Inmobiliaria');
+    }
+    public function publications(){
+        return $this->hasMany('App\Publication');
+    }
 }

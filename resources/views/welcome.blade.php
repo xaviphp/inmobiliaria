@@ -76,6 +76,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('logout') }}">Logout</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -92,7 +93,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Ver propiedades</a>
+                    <a href="{{ url('/home') }}">Ver propiedades</a>
 
                 </div>
             </div>

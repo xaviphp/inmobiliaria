@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Inmobiliaria;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,14 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        return view('home');
+        $inmobiliarias = Inmobiliaria::all();
+        return view('home', compact('inmobiliarias'));
     }
+
+    public function show(Inmobiliaria $inmobiliaria)
+    {
+        //
+    }
+
+
 }

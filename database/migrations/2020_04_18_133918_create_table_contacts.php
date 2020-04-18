@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTablePublications extends Migration
+class CreateTableContacts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,13 @@ class CreateTablePublications extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('pub_id')->unsigned();
-            $table->foreign('pub_id')->references('id')->on('inmobiliarias');
-            $table->string('pubTitle');
+            $table->bigInteger('interested_id')->unsigned();
+            $table->foreign('interested_id')->references('id')->on('users');
             $table->bigInteger('pro_id')->unsigned();
-            $table->foreign('pro_id')->references('id')->on('users');
-
-
-
-
+            //$table->foreign('pub_id')->references('id')->on('propierties');
         });
     }
 
@@ -35,6 +30,6 @@ class CreateTablePublications extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publications');
+        Schema::dropIfExists('contacts');
     }
 }

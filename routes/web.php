@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +26,8 @@ Route::get('xac', function () {
     ->header('Content-Type', 'text/html')
     ->cookie('projecte', 'valor que tiene', 30);
 });
-Route::get('/salir', function (){
-    return redirect()->route('home');
-});
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

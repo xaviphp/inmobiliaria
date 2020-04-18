@@ -52,8 +52,10 @@
                         @else
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.inmobiliarias.index')}}">
-                                Propiedades
+                                Mis Propiedades
                                 </a>
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -71,6 +73,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
+                                <a class="nav-link" href="{{ url('/logout') }}">Salir</a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
