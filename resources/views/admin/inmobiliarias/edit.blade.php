@@ -14,6 +14,9 @@
                     Nombre:
                     <input type="text" name="name" value="{{$inmobiliaria->name}}" class="form-control"/>
                         <br/><br/>
+                        <input type="text" name="description" value="{{$inmobiliaria->description}}" class="form-control"/>
+                        <br/><br/>
+
                         <input type="submit" value="Guardar" class="btn btn-primary"/>
                     </form>
                 </div>

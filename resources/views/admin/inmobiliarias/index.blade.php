@@ -12,12 +12,15 @@
                     <br>
                    <table class="table">
                        <tr>
-                           <th>Nombre</th>
+                           <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th>
                            <th></th>
                        </tr>
                        @forelse($inmobiliarias as $inmobiliaria)
                            <tr>
+                               <td>{{$inmobiliaria->id}}</td>
                                <td>{{$inmobiliaria->name}}</td>
+                               <td>{{$inmobiliaria->description}}</td>
+                               <td>{{$inmobiliaria->price}}</td>
                                <td><a href="{{route('admin.inmobiliarias.edit', $inmobiliaria->id)}}" class="btn btn-sm btn-info">Editar</a>
                                <form method="POST" action="{{route('admin.inmobiliarias.destroy', $inmobiliaria->id)}}">
 

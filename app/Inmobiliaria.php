@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inmobiliaria extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['user_id','name', 'description', 'price'];
+
+    public $timestamps = false;
 }
