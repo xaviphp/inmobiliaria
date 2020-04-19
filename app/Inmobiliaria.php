@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Multitenantable;
+
+
 
 class Inmobiliaria extends Model
 {
@@ -13,4 +16,5 @@ class Inmobiliaria extends Model
     public function user(){
         return $this->belongsTo('App\User','user_id');
     }
+    use Multitenantable;
 }
