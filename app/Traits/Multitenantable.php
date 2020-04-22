@@ -8,7 +8,7 @@
 
 namespace App\Traits;
 use Illuminate\Database\Eloquent\Builder;
-
+use Request;
 
 
 trait Multitenantable
@@ -16,6 +16,9 @@ trait Multitenantable
 
     protected static function bootMultitenantable()
     {
+        if(Request::is('admin/inmobiliarias')) {
+            //si es la pagina mis propiedades uso el filtro para mostrar solo mis propiedades
+
         if (auth()->check()) {
             static::creating(function ($model) {
                 $model->user_id = auth()->id();
@@ -26,7 +29,7 @@ trait Multitenantable
                 static::addGlobalScope('user_id', function (Builder $builder) {
                     $builder->where('user_id', auth()->id());
                 });
-            }
+            }}
         }
     }
 }

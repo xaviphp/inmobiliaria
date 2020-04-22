@@ -3,22 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">Propiedas publicadas en InmobiliariaXavi</div>
 
                 <div class="card-body">
-                    @if(Auth::user()->hasRole('admin'))
-                        <div>Acceso como administrador</div>
-                    @else
-                        <div>Acceso usuario</div>
-                    @endif
+
                         <table class="table">
                             <tr>
-                                <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Foto</th>
+                                <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Foto</th><th>Contacto</th>
                                 <th></th>
                             </tr>
                             @forelse($inmobiliarias as $inmobiliaria)
+
                                 <tr>
                                     <td>{{$inmobiliaria->id}}</td>
                                     <td>{{$inmobiliaria->name}}</td>
@@ -27,7 +24,11 @@
                                     <td>
                                         @if($inmobiliaria->photo!=null)<img src="{{asset('storage/'.$inmobiliaria->photo)}}" width="150px">@endif
                                     </td>
-                                    </td>
+                                    <td>
+                                        @if (Auth::check())
+                                            {{$users[$inmobiliaria->user_id-1]['email']}}</td>
+                                        @else Inicia Sesion para ver el contacto
+                                    @endif
                                 </tr>
                             @empty
                                 <tr>

@@ -27,7 +27,7 @@ Route::get('xac', function () {
     ->cookie('projecte', 'valor que tiene', 30);
 });
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+Route::post('image-upload', 'ImageUploadController@imageUploadPost');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

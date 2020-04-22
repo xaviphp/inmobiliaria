@@ -38,8 +38,16 @@ class InmobiliariaController extends Controller
      */
     public function store(Request $request)
     {
-        $path=$request->file('photo')->store('photos','public');
-        Inmobiliaria::create($request->all());
+        $path=$request->file('photo')->store('tmp','public');
+        Inmobiliaria::create(['description'=>$request->description,
+            'price'=>$request->price,
+            'name'=>$request->name,
+            'user_id'=>$request->user_id,
+            'photo'=>$path
+        ]);
+
+
+
         return redirect()->route('admin.inmobiliarias.index');
     }
 
@@ -74,7 +82,12 @@ class InmobiliariaController extends Controller
      */
     public function update(Request $request, Inmobiliaria $inmobiliaria)
     {
-        $inmobiliaria->update($request->all());
+
+        $inmobiliaria->update(['description'=>$request->description,
+            'price'=>$request->price,
+            'name'=>$request->name,
+            'user_id'=>$request->user_id,
+        ]);
         return redirect()->route('admin.inmobiliarias.index');
     }
 

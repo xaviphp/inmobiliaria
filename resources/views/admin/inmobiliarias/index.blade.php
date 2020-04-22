@@ -3,14 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Inmobiliarias</div>
+                <div class="card-header">Inmobiliarias
+                    @if(Auth::user()->hasRole('admin'))
+                        <div>Acceso como administrador</div>
+                    @else
+                        <div>Acceso usuario</div>
+                    @endif</div>
 
                 <div class="card-body">
                     <a href="{{route('admin.inmobiliarias.create')}}" class="btn btn-sm btn-primary">Añadir Nueva</a>
                     <br>
                    <table class="table">
+
                        <tr>
                            <th>Id</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Foto</th>
                            <th></th>

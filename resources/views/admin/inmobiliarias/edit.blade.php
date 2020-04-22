@@ -18,6 +18,8 @@
                         <br/><br/>
                         <input type="number" name="price" value="{{$inmobiliaria->price}}" class="form-control"/>
                         <br/><br/>
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+
 
                         <input type="submit" value="Guardar" class="btn btn-primary"/>
                     </form>
